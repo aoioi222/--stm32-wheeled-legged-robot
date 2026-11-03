@@ -1,0 +1,97 @@
+/* ----------.h head-----------------------------------*/
+#ifndef RCS_VESC_MOTOR_H_
+#define RCS_VESC_MOTOR_H_
+
+/* ----------包含头-------------------------------------*/
+#include "rcs.h"
+
+/* ----------配置宏--------------------------------------*/
+#define MAX_VESC_ON_CAN   20   //本杰明电调ID上限
+#define DLY_AFTER_CAN_RDY 100  //CAN外设初始化完成后延时ms
+
+/* ---------私有结构体-----------------------------------*/
+typedef enum {
+	VESC_PACKET_SET_DUTY = 0,
+	VESC_PACKET_SET_CURRENT,
+	VESC_PACKET_SET_CURRENT_BRAKE,
+	VESC_PACKET_SET_RPM,
+	VESC_PACKET_SET_POS,
+	VESC_PACKET_FILL_RX_BUFFER,
+	VESC_PACKET_FILL_RX_BUFFER_LONG,
+	VESC_PACKET_PROCESS_RX_BUFFER,
+	VESC_PACKET_PROCESS_SHORT_BUFFER,
+	VESC_PACKET_STATUS,
+	VESC_PACKET_SET_CURRENT_REL,          //Set current relative to the minimum and maximum current limits.
+	VESC_PACKET_SET_CURRENT_BRAKE_REL,
+	VESC_PACKET_SET_CURRENT_HANDBRAKE,
+	VESC_PACKET_SET_CURRENT_HANDBRAKE_REL,
+	VESC_PACKET_STATUS_2,
+	VESC_PACKET_STATUS_3,
+	VESC_PACKET_STATUS_4,
+	VESC_PACKET_PING,
+	VESC_PACKET_PONG,
+	VESC_PACKET_DETECT_APPLY_ALL_FOC,
+	VESC_PACKET_DETECT_APPLY_ALL_FOC_RES,
+	VESC_PACKET_CONF_CURRENT_LIMITS,
+	VESC_PACKET_CONF_STORE_CURRENT_LIMITS,
+	VESC_PACKET_CONF_CURRENT_LIMITS_IN,
+	VESC_PACKET_CONF_STORE_CURRENT_LIMITS_IN,
+	VESC_PACKET_CONF_FOC_ERPMS,
+	VESC_PACKET_CONF_STORE_FOC_ERPMS,
+	VESC_PACKET_STATUS_5,
+	VESC_PACKET_POLL_TS5700N8501_STATUS,
+	VESC_PACKET_CONF_BATTERY_CUT,
+	VESC_PACKET_CONF_STORE_BATTERY_CUT,
+	VESC_PACKET_SHUTDOWN,
+	VESC_PACKET_IO_BOARD_ADC_1_TO_4,
+	VESC_PACKET_IO_BOARD_ADC_5_TO_8,
+	VESC_PACKET_IO_BOARD_ADC_9_TO_12,
+	VESC_PACKET_IO_BOARD_DIGITAL_IN,
+	VESC_PACKET_IO_BOARD_SET_OUTPUT_DIGITAL,
+	VESC_PACKET_IO_BOARD_SET_OUTPUT_PWM,
+	VESC_PACKET_BMS_V_TOT,
+	VESC_PACKET_BMS_I,
+	VESC_PACKET_BMS_AH_WH,
+	VESC_PACKET_BMS_V_CELL,
+	VESC_PACKET_BMS_BAL,
+	VESC_PACKET_BMS_TEMPS,
+	VESC_PACKET_BMS_HUM,
+	VESC_PACKET_BMS_SOC_SOH_TEMP_STAT,
+	VESC_PACKET_PSW_STAT,
+	VESC_PACKET_PSW_SWITCH,
+	VESC_PACKET_BMS_HW_DATA_1,
+	VESC_PACKET_BMS_HW_DATA_2,
+	VESC_PACKET_BMS_HW_DATA_3,
+	VESC_PACKET_BMS_HW_DATA_4,
+	VESC_PACKET_BMS_HW_DATA_5,
+	VESC_PACKET_BMS_AH_WH_CHG_TOTAL,
+	VESC_PACKET_BMS_AH_WH_DIS_TOTAL,
+	VESC_PACKET_UPDATE_PID_POS_OFFSET,
+	VESC_PACKET_POLL_ROTOR_POS,
+	VESC_PACKET_BMS_BOOT,
+	VESC_PACKET_MAKE_ENUM_32_BITS = 0xFFFFFFFF,
+} VESC_PACKET_ID;//VESC V5.03框架CAN数据包ID
+
+/* ---------导出函数(新接口)-------------------------------------*/
+//本杰明电调初始化
+void VESC_CAN_Init(CAN_TypeDef* CANx);
+//执行本杰明电调报文
+void VESC_Excute_Current(CAN_TypeDef* CANx,uint16_t ext_id,int16_t current);
+void VESC_Excute_Speed(CAN_TypeDef* CANx,uint16_t ext_id,int32_t speed);
+void VESC_Excute_Angle(CAN_TypeDef* CANx,uint16_t ext_id,float angle);
+//获取本杰明电调报文
+int16_t VESC_Get_Speed_Erpm(CAN_TypeDef* CANx,uint16_t ext_id);
+float VESC_Get_Angle_Deg_PidPos(CAN_TypeDef* CANx,uint16_t ext_id);
+float VESC_Get_Angle_Deg_Encoder(CAN_TypeDef* CANx,uint16_t ext_id);
+//获取电机状态
+float VESC_U8_Get_Speed_Rpm(CAN_TypeDef* CANx,uint16_t ext_id);
+float VESC_M5065_Get_Speed_Rpm(CAN_TypeDef* CANx,uint16_t ext_id);
+//VESC回调CAN服务(不可直接调用,仅供回调)
+void Bldc_Motor_Data_Filter1(RCS_CAN2B_DATA_FM_RX rx_message);
+void Bldc_Motor_Data_Filter2(RCS_CAN2B_DATA_FM_RX rx_message);
+
+float Get_VESC_Pos(uint8_t Motor_ID);
+float Get_VESC_Pos2(uint8_t Motor_ID);
+int16_t Get_VESC_Speed(uint8_t Motor_ID);
+int16_t Get_VESC_Speed2(uint8_t Motor_ID);
+#endif

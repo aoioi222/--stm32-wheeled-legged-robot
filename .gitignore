@@ -1,0 +1,22 @@
+# Keil MDK build output
+OBJ/
+USER/build/
+USER/DebugConfig/
+USER/Listings/
+USER/RTE/
+*.axf
+*.d
+*.hex
+*.lst
+*.map
+*.o
+*.crf
+*.uvguix.*
+
+# Editor and local tool state
+.cmsis/
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db

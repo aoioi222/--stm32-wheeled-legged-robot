@@ -1,0 +1,27 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "files.associations": {
+            "rcs_motor_upctrl.h": "c",
+            "rcs_motor.h": "c",
+            "rcs_debug.h": "c",
+            "up_ctrl.h": "c",
+            "rcs_interface.h": "c",
+            "rcs_usart.h": "c",
+            "r1_upctrl_motion.h": "c",
+            "rcs_types.h": "c",
+            "rcs_ptl.h": "c",
+            "rcs_scara.h": "c",
+            "rcs_dsp.h": "c",
+            "upctrltask.h": "c",
+            "bletask.h": "c",
+            "rcs_can_interface.h": "c",
+            "rcslib_inc.h": "c"
+        }
+    },
+    "extensions": {}
+}
