@@ -20,3 +20,8 @@ USER/RTE/
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# HAL Keil generated files
+/HAL/MDK-ARM/RCS_Template_F407/
+/HAL/MDK-ARM/RTE/
+/HAL/MDK-ARM/DebugConfig/

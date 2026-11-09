@@ -8,6 +8,7 @@
 | --- | --- |
 | 早期原型 | 串行总线舵机关节、RM3508 轮电机、STM32 标准外设库和 uC/OS-II。见早期提交。 |
 | 标准库升级 | 12 个 eduLite05 关节和 4 个 DM-H6215 轮电机接入双 CAN。电机驱动、遥控分发和应用控制分层，主任务按实际经过的 tick 推进步态。 |
+| HAL 迁移 | 应用移植到 STM32 HAL 和 FreeRTOS，保留双 CAN 驱动和 5 ms 调度。见 [HAL 工程](HAL/)。 |
 
 ## 标准库工程
 
@@ -18,3 +19,8 @@
 - 支持 Trot、Walk、Pronk 及站立、轮式、折叠和跳跃。当前使用几何逆运动学，雅可比迭代和重力补偿开关默认关闭。
 
 电机使能开关默认为关闭。实机运行前，在 [robot_config.h](Multiple_modal_robot/robot_config.h) 和 [Foot_mode_control.c](Multiple_modal_robot/Foot_mode_control.c) 核对电机 ID、方向、零位和限位，并验证通信与控制周期。
+
+## HAL 迁移工程
+
+- Keil 入口为 [HAL/MDK-ARM/RCS_Template_F407.uvprojx](HAL/MDK-ARM/RCS_Template_F407.uvprojx)。源代码、CubeMX 配置和接口说明见 [HAL/README.md](HAL/README.md)。
+- HAL 板的轮电机 CAN1 使用 PB8/PB9。两个版本的关节电机都走 CAN2（PB12/PB13）。
