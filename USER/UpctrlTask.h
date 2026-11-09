@@ -4,6 +4,6 @@
 
 
 void upctrl_task(void *p_arg);
-void UpCtrlTask_Init();
+void UpCtrlTask_Init(void);
 
 #endif

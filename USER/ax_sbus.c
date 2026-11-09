@@ -6,6 +6,11 @@
 
 #define SBUS_BAUD 100000
 #define SBUS_PRI  0x01
+#define SBUS_SIGNAL_TIMEOUT_TICKS (OS_TICKS_PER_SEC / 10u)
+#define SBUS_INVALID_FLAGS 0x0Cu
+
+static volatile uint32_t sbus_frame_tick;
+static volatile bool sbus_frame_valid;
 
 uint8_t  uart_sbus_rx_ok = 0;      //接收成功标志
 uint16_t  uart_sbus_rx_con=0;       //接收计数器
@@ -65,7 +70,16 @@ void SBUS_IRQHandler(void)
 				//复位接收计数器
 				uart_sbus_rx_con = 0;
 				//解析数据
-				AX_SBUS_Handle_RxData();
+                if (uart_sbus_rx_buf[23] & SBUS_INVALID_FLAGS)
+                {
+                    sbus_frame_valid = false;
+                    uart_sbus_rx_ok = 0;
+                }
+                else if (AX_SBUS_Handle_RxData())
+                {
+                    sbus_frame_tick = OSTimeGet();
+                    sbus_frame_valid = true;
+                }
 			}
 			else
 			{
@@ -160,4 +174,17 @@ uint8_t AX_SBUS_GetRxData(uint16_t *pbuf)
 	{
 		return 0;
 	}	
+}
+
+bool AX_SBUS_GetLiveChannels(uint16_t channels[16])
+{
+    OS_CPU_SR cpu_sr;
+    OS_ENTER_CRITICAL();
+    bool valid = sbus_frame_valid && (OSTimeGet() - sbus_frame_tick < SBUS_SIGNAL_TIMEOUT_TICKS);
+    if (valid)
+        memcpy(channels, uart_sbus_data, sizeof(uart_sbus_data));
+    else
+        sbus_frame_valid = false;
+    OS_EXIT_CRITICAL();
+    return valid;
 }

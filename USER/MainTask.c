@@ -1,6 +1,7 @@
 /* ===========头文件=============================================*/
 #include "MainTask.h"
 #include "rcs.h"
+#include "Core407_RCS12_PinMapping.h"
 #include "R2_CombCtrl.h"
 #include "Ch_Ctrl.h"
 #include "Laser_Ranging.h"
@@ -38,11 +39,10 @@ void MainTask_AllInit(void)
 	/*-------通用功能初始化-------------------------*/
 	RCS_Core407_PinMap_Init();        //为底板的管脚映射赋值(管脚的复)
 	RCS_Hard_Stamper_Init(HARD_STAMPER_TIMER);
+	RCS_CANx_Config_With_Buffer(CAN1_MAP, CAN1_BAUD);
 
 	/*-------机械臂相关初始化-----------------------*/
 
-		AGV_Init();
-		AGV_Init2();
 		motor_reset_init(GPIOD,GPIO_Pin_13,0b10001000);
 		motor_reset_init(GPIOB,GPIO_Pin_6,0b10001000);
 

@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER,_FPU_PRESENT=1</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\FWLIB\inc;..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\uCOS-II\CONFIG;..\uCOS-II\CORE;..\uCOS-II\PORT;..\BSP;..\uCOS-II\uC-CPU;..\uCOS-II\uC-LIB;..\RCSLIB;..\USERLIB;..\RCSLIB\vesc_can_master;..\CORE\dsp;..\CORE\dsp\Include;..\CORE\dsp\Include\dsp;..\RCSLIB\Matrix_hub;..\Tri-modal robot;..\Tri-modal robot\Calculate;..\Tri-modal robot\IMU;..\Tri-modal robot\gait_controller;..\Tri-modal robot\remote_controller</IncludePath>
+              <IncludePath>..\CORE;..\FWLIB\inc;..\USER;..\SYSTEM\delay;..\SYSTEM\sys;..\uCOS-II\CONFIG;..\uCOS-II\CORE;..\uCOS-II\PORT;..\BSP;..\uCOS-II\uC-CPU;..\uCOS-II\uC-LIB;..\RCSLIB;..\USERLIB;..\RCSLIB\vesc_can_master;..\CORE\dsp;..\CORE\dsp\Include;..\CORE\dsp\Include\dsp;..\RCSLIB\Matrix_hub;..\Multiple_modal_robot;..\Multiple_modal_robot\Calculate;..\Multiple_modal_robot\IMU;..\Multiple_modal_robot\gait_controller;..\Multiple_modal_robot\remote_controller;..\Multiple_modal_robot\Motor</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -488,22 +488,22 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Tri-modal robot</GroupName>
+          <GroupName>Multiple_modal_robot</GroupName>
           <Files>
             <File>
               <FileName>Overall_contrl.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Overall_contrl.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Overall_contrl.c</FilePath>
             </File>
             <File>
               <FileName>Overall_contrl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Overall_contrl.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Overall_contrl.h</FilePath>
             </File>
             <File>
               <FileName>Fly_contrl.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Fly_contrl.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Fly_contrl.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -559,222 +559,257 @@
             <File>
               <FileName>Fly_contrl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Fly_contrl.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Fly_contrl.h</FilePath>
             </File>
             <File>
               <FileName>Foot_mode_control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Foot_mode_control.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Foot_mode_control.c</FilePath>
             </File>
             <File>
               <FileName>Foot_mode_control.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Foot_mode_control.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Foot_mode_control.h</FilePath>
             </File>
             <File>
               <FileName>Wheel_mode_contrl.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Wheel_mode_contrl.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Wheel_mode_contrl.c</FilePath>
             </File>
             <File>
               <FileName>Wheel_mode_contrl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Wheel_mode_contrl.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Wheel_mode_contrl.h</FilePath>
             </File>
             <File>
               <FileName>Forward_kinematics_calculate.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Calculate\Forward_kinematics_calculate.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Calculate\Forward_kinematics_calculate.c</FilePath>
             </File>
             <File>
               <FileName>Forward_kinematics_calculate.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Calculate\Forward_kinematics_calculate.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Calculate\Forward_kinematics_calculate.h</FilePath>
             </File>
             <File>
               <FileName>Inverse_kinematics_calculate.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Calculate\Inverse_kinematics_calculate.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Calculate\Inverse_kinematics_calculate.c</FilePath>
             </File>
             <File>
               <FileName>Inverse_kinematics_calculate.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Calculate\Inverse_kinematics_calculate.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Calculate\Inverse_kinematics_calculate.h</FilePath>
             </File>
             <File>
               <FileName>Jacobian_matrix.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Calculate\Jacobian_matrix.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Calculate\Jacobian_matrix.c</FilePath>
             </File>
             <File>
               <FileName>Jacobian_matrix.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Calculate\Jacobian_matrix.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Calculate\Jacobian_matrix.h</FilePath>
             </File>
             <File>
               <FileName>bezier_foot_tra.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\bezier_foot_tra.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\bezier_foot_tra.c</FilePath>
             </File>
             <File>
               <FileName>bezier_foot_tra.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\bezier_foot_tra.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\bezier_foot_tra.h</FilePath>
             </File>
             <File>
               <FileName>gait_controller.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\gait_controller\gait_controller.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\gait_controller\gait_controller.c</FilePath>
             </File>
             <File>
               <FileName>gait_controller.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\gait_controller\gait_controller.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\gait_controller\gait_controller.h</FilePath>
             </File>
             <File>
               <FileName>gait_generator.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\gait_controller\gait_generator.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\gait_controller\gait_generator.c</FilePath>
             </File>
             <File>
               <FileName>gait_generator.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\gait_controller\gait_generator.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\gait_controller\gait_generator.h</FilePath>
             </File>
             <File>
               <FileName>gait_scheduler.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\gait_controller\gait_scheduler.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\gait_controller\gait_scheduler.c</FilePath>
             </File>
             <File>
               <FileName>gait_scheduler.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\gait_controller\gait_scheduler.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\gait_controller\gait_scheduler.h</FilePath>
             </File>
             <File>
               <FileName>leg_state_machine.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\gait_controller\leg_state_machine.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\gait_controller\leg_state_machine.c</FilePath>
             </File>
             <File>
               <FileName>leg_state_machine.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\gait_controller\leg_state_machine.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\gait_controller\leg_state_machine.h</FilePath>
             </File>
             <File>
               <FileName>robot_state.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\robot_state.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\robot_state.c</FilePath>
             </File>
             <File>
               <FileName>robot_state.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\robot_state.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\robot_state.h</FilePath>
             </File>
             <File>
               <FileName>Hardware I2C.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\IMU\Hardware I2C.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\IMU\Hardware I2C.c</FilePath>
             </File>
             <File>
               <FileName>Hardware_I2C.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\IMU\Hardware_I2C.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\IMU\Hardware_I2C.h</FilePath>
             </File>
             <File>
               <FileName>I2C_ICM_42688_P_control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\IMU\I2C_ICM_42688_P_control.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\IMU\I2C_ICM_42688_P_control.c</FilePath>
             </File>
             <File>
               <FileName>I2C_ICM_42688_P_control.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\IMU\I2C_ICM_42688_P_control.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\IMU\I2C_ICM_42688_P_control.h</FilePath>
             </File>
             <File>
               <FileName>I2C_communication.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\IMU\I2C_communication.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\IMU\I2C_communication.c</FilePath>
             </File>
             <File>
               <FileName>I2C_communication.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\IMU\I2C_communication.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\IMU\I2C_communication.h</FilePath>
             </File>
             <File>
               <FileName>Kalman_Filter.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Kalman_Filter.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Kalman_Filter.c</FilePath>
             </File>
             <File>
               <FileName>Kalman_Filter.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Kalman_Filter.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Kalman_Filter.h</FilePath>
             </File>
             <File>
               <FileName>body_control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\body_control.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\body_control.c</FilePath>
             </File>
             <File>
               <FileName>body_control.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\body_control.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\body_control.h</FilePath>
             </File>
             <File>
               <FileName>remote_control_sbus.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\remote_controller\remote_control_sbus.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\remote_controller\remote_control_sbus.c</FilePath>
             </File>
             <File>
               <FileName>remote_control_sbus.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\remote_controller\remote_control_sbus.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\remote_controller\remote_control_sbus.h</FilePath>
+            </File>
+            <File>
+              <FileName>rc_event_dispatch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Multiple_modal_robot\remote_controller\rc_event_dispatch.c</FilePath>
+            </File>
+            <File>
+              <FileName>rc_event_dispatch.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Multiple_modal_robot\remote_controller\rc_event_dispatch.h</FilePath>
             </File>
             <File>
               <FileName>jump_controller.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\remote_controller\jump_controller.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\remote_controller\jump_controller.c</FilePath>
             </File>
             <File>
               <FileName>jump_controller.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\remote_controller\jump_controller.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\remote_controller\jump_controller.h</FilePath>
             </File>
             <File>
               <FileName>Foot_structure.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\Foot_structure.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\Foot_structure.c</FilePath>
             </File>
             <File>
               <FileName>Foot_structure.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\Foot_structure.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\Foot_structure.h</FilePath>
             </File>
             <File>
               <FileName>robot_config.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\robot_config.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\robot_config.h</FilePath>
             </File>
             <File>
               <FileName>include_head.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\include_head.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\include_head.h</FilePath>
             </File>
             <File>
               <FileName>motor_LZ.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\motor_LZ.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\motor_LZ.h</FilePath>
             </File>
             <File>
               <FileName>gravity_comp.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Tri-modal robot\gravity_comp.h</FilePath>
+              <FilePath>..\Multiple_modal_robot\gravity_comp.h</FilePath>
             </File>
             <File>
               <FileName>gravity_comp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Tri-modal robot\gravity_comp.c</FilePath>
+              <FilePath>..\Multiple_modal_robot\gravity_comp.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Motor</GroupName>
+          <Files>
+            <File>
+              <FileName>edulite05.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Multiple_modal_robot\Motor\edulite05.c</FilePath>
+            </File>
+            <File>
+              <FileName>edulite05.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Multiple_modal_robot\Motor\edulite05.h</FilePath>
+            </File>
+            <File>
+              <FileName>dm_h6215.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Multiple_modal_robot\Motor\dm_h6215.c</FilePath>
+            </File>
+            <File>
+              <FileName>dm_h6215.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Multiple_modal_robot\Motor\dm_h6215.h</FilePath>
             </File>
           </Files>
         </Group>

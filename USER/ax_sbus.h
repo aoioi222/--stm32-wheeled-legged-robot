@@ -14,4 +14,6 @@ void SBUS_Init(RCS_PIN_USART USARTx_MAP );
 
 uint8_t AX_SBUS_GetRxData(uint16_t *pbuf);
 
-#endif 
+bool AX_SBUS_GetLiveChannels(uint16_t channels[16]);
+
+#endif
